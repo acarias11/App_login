@@ -5,6 +5,10 @@ class InicioDeSesionPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Inicio de sesion'),
+      ),
+    );
   }
 }
