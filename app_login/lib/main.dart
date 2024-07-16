@@ -17,6 +17,29 @@ class MainApp extends StatelessWidget {
        routes: {
         'sesion': (context) => const InicioDeSesionPage(),
        },
+        onGenerateRoute: (settings) {
+        return MaterialPageRoute(
+          builder: (context) => Scaffold(
+            appBar: AppBar(),
+            body: Center(
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  const Icon(
+                    Icons.error,
+                    size: 100,
+                  ),
+                  Text(
+                    'La ruta " ${settings.name} " no existe',
+                    style: const TextStyle(
+                        fontSize: 30, fontWeight: FontWeight.bold),
+                  ),
+                ],
+              ),
+            ),
+          ),
+        );
+      },
     );
   }
 }
