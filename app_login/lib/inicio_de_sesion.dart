@@ -34,7 +34,7 @@ class InicioDeSesionPage extends StatelessWidget {
                 nombrelabel: 'Pssword',
                 hint: 'Ingrese su contrasenia',
                 controller: contracontroller, 
-                )
+                ),
             ],
            )
         ),
