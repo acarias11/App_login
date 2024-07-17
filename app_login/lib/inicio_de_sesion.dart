@@ -18,95 +18,99 @@ class InicioDeSesionPage extends StatelessWidget {
         backgroundColor: Colors.blueGrey,
         title:const Text('Inicio de sesion'),
       ),
-      body: Container(
-        decoration: BoxDecoration(
-          gradient: LinearGradient(
-            begin: Alignment.topRight,
-            colors: [  Colors.blueGrey, Colors.white10,] 
+      body: SingleChildScrollView(
+        child: Container(
+          decoration: const BoxDecoration(
+            gradient: LinearGradient(
+              begin: Alignment.topRight,
+              colors: [  Colors.blueGrey, Colors.white10,] 
+              ),
+          ),
+          child: Padding(
+            padding: const EdgeInsets.all(18),
+            child: Form(
+              key: fkey,
+               child: Column(
+                children: [
+                  const Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                             SizedBox(height: 130),
+                          Icon(
+                            Icons.people,
+                          size: 100,
+                          )
+                   ],
+                 ),  
+                  CustomInputs(
+                    nombrelabel: 'Correo',
+                    hint: 'Ingrese su correo',
+                    teclado: TextInputType.emailAddress,
+                    controller: correocontroller, 
+                    icono: Icons.email,
+                    validator: null
+                   ),
+                  
+                  const SizedBox(height: 20,),
+        
+                   PasswordInput(
+                    nombrelabel: 'Password',
+                    hint: 'Ingrese su contrasenia',
+                    controller: contracontroller, 
+                    validator: null, 
+                    ),
+                    const SizedBox(height: 20,),
+                     Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            const SizedBox(height: 100),
+                            SizedBox(
+                              height: 60,
+                              width: 300,
+                              child: ElevatedButton(
+                                onPressed:(){
+                                Navigator.of(context).pushNamed('inicio');                                                 
+        
+                              }, 
+                              child:
+                                 const Text('Ingresar',
+                                     style: TextStyle(
+                                     fontSize: 25,
+                                     fontWeight: FontWeight.bold,
+                                     fontStyle: FontStyle.italic,
+                                     color: Colors.black),
+                                     ),
+                              ),
+                            ),
+                   ],
+                 ),  
+                  Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            const SizedBox(height: 100),
+                            SizedBox(
+                              height: 60,
+                              width: 300,
+                              child: ElevatedButton(
+                                onPressed:(){
+                                 Navigator.of(context).pushNamed('registro');                                                 
+          
+                              }, 
+                              child:
+                                 const Text('Registrarse',
+                                     style: TextStyle(
+                                     fontSize: 25,
+                                     fontWeight: FontWeight.bold,
+                                     fontStyle: FontStyle.italic,
+                                     color: Colors.black),
+                                     ),
+                              ),
+                            ),
+                   ],
+                 ),  
+                ],
+               )
             ),
-        ),
-        child: Padding(
-          padding: const EdgeInsets.all(18),
-          child: Form(
-            key: fkey,
-             child: Column(
-              children: [
-                const Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                           SizedBox(height: 130),
-                        Icon(
-                          Icons.people,
-                        size: 100,
-                        )
-                 ],
-               ),  
-                CustomInputs(
-                  length: 20,
-                  nombrelabel: 'Correo',
-                  hint: 'Ingrese su correo',
-                  teclado: TextInputType.emailAddress,
-                  controller: correocontroller, 
-                  icono: Icons.email,
-                  validator: null
-                 ),
-        
-                 PasswordInput(
-                  nombrelabel: 'Password',
-                  hint: 'Ingrese su contrasenia',
-                  controller: contracontroller, 
-                  validator: null, 
-                  ),
-                   Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          const SizedBox(height: 100),
-                          SizedBox(
-                            height: 60,
-                            width: 300,
-                            child: ElevatedButton(
-                              onPressed:(){
-                              Navigator.of(context).pushNamed('inicio');                                                 
-
-                            }, 
-                            child:
-                               const Text('Ingresar',
-                                   style: TextStyle(
-                                   fontSize: 25,
-                                   fontWeight: FontWeight.bold,
-                                   fontStyle: FontStyle.italic,
-                                   color: Colors.black),
-                                   ),
-                            ),
-                          ),
-                 ],
-               ),  
-                Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          const SizedBox(height: 100),
-                          SizedBox(
-                            height: 60,
-                            width: 300,
-                            child: ElevatedButton(
-                              onPressed:(){
-                               Navigator.of(context).pushNamed('registro');                                                 
-        
-                            }, 
-                            child:
-                               const Text('Registrarse',
-                                   style: TextStyle(
-                                   fontSize: 25,
-                                   fontWeight: FontWeight.bold,
-                                   fontStyle: FontStyle.italic,
-                                   color: Colors.black),
-                                   ),
-                            ),
-                          ),
-                 ],
-               ),  
-              ],
-             )
           ),
         ),
       ),

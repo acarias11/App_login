@@ -29,7 +29,6 @@ class _PasswordInputState extends State<PasswordInput> {
       validator: widget.validator,
       obscureText: contra,
       keyboardType: TextInputType.text,
-      maxLength: 30,
       maxLines: 1,
       decoration: InputDecoration(
         hintText: widget.hint,
