@@ -34,7 +34,7 @@ class _PasswordInputState extends State<PasswordInput> {
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(16),
         ),
-        prefixIcon: Icon(Icons.password),
+        prefixIcon: const Icon(Icons.password),
         suffixIcon: IconButton(
                     icon: Icon(
                         contra ? Icons.visibility : Icons.visibility_off),

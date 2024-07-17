@@ -15,7 +15,7 @@ class MainApp extends StatelessWidget {
        title: 'App login',
        initialRoute: 'sesion',
        routes: {
-        'sesion': (context) => const InicioDeSesionPage(),
+        'sesion': (context) => InicioDeSesionPage(),
        },
         onGenerateRoute: (settings) {
         return MaterialPageRoute(
