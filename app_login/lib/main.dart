@@ -1,3 +1,4 @@
+import 'package:app_login/registro_page.dart';
 import 'package:flutter/material.dart';
 import 'package:app_login/inicio_de_sesion.dart';
 
@@ -16,6 +17,7 @@ class MainApp extends StatelessWidget {
        initialRoute: 'sesion',
        routes: {
         'sesion': (context) => InicioDeSesionPage(),
+        'registro':(context) => RegistroPage(),
        },
         onGenerateRoute: (settings) {
         return MaterialPageRoute(

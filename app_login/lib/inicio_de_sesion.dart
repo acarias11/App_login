@@ -30,13 +30,38 @@ class InicioDeSesionPage extends StatelessWidget {
                 icono: Icons.email,
                 validator: null
                ),
-               
+
                PasswordInput(
-                nombrelabel: 'Pssword',
+                nombrelabel: 'Password',
                 hint: 'Ingrese su contrasenia',
                 controller: contracontroller, 
                 validator: null, 
-                )
+                ),
+                 Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        const SizedBox(height: 130),
+                        SizedBox(
+                          height: 60,
+                          width: 300,
+                          child: FloatingActionButton(
+                            backgroundColor: Colors.green[600],
+                            onPressed:(){
+                             Navigator.of(context).pushNamed('registro');                                                 
+
+                          }, 
+                          child:
+                             const Text('Ingresar',
+                                 style: TextStyle(
+                                 fontSize: 25,
+                                 fontWeight: FontWeight.bold,
+                                 fontStyle: FontStyle.italic,
+                                 color: Colors.black),
+                                 ),
+                          ),
+                        ),
+               ],
+             ),  
             ],
            )
         ),
