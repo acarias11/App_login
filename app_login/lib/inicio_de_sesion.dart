@@ -33,7 +33,8 @@ class InicioDeSesionPage extends StatelessWidget {
                PasswordInput(
                 nombrelabel: 'Pssword',
                 hint: 'Ingrese su contrasenia',
-                controller: contracontroller, 
+                controller: contracontroller,
+                validator: null, 
                 )
             ],
            )

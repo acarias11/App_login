@@ -29,8 +29,8 @@ class CustomInputs extends StatelessWidget {
       maxLength: length,
       maxLines: 1,
       decoration: InputDecoration(
-        hintText: hint,
         label: Text(nombrelabel),
+        hintText: hint,
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(16),
         ),
