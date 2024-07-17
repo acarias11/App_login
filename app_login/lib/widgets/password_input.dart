@@ -6,11 +6,13 @@ class PasswordInput extends StatefulWidget {
     required this.nombrelabel, 
     required this.hint, 
     required this.controller,
+    required this.validator,
     });
 
 final String nombrelabel;
   final String hint;
   final TextEditingController controller;
+  final String? Function(String?)? validator;
 
   @override
   State<PasswordInput> createState() => _PasswordInputState();
@@ -22,8 +24,9 @@ class _PasswordInputState extends State<PasswordInput> {
 
   @override
   Widget build(BuildContext context) {
-    return TextField(
+    return TextFormField(
       controller: widget.controller,
+      validator: widget.validator,
       obscureText: contra,
       keyboardType: TextInputType.text,
       maxLength: 30,

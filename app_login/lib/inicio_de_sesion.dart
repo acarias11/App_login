@@ -30,11 +30,13 @@ class InicioDeSesionPage extends StatelessWidget {
                 icono: Icons.email,
                 validator: null
                ),
+               
                PasswordInput(
                 nombrelabel: 'Pssword',
                 hint: 'Ingrese su contrasenia',
                 controller: contracontroller, 
-                ),
+                validator: null, 
+                )
             ],
            )
         ),
