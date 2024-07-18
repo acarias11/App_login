@@ -60,14 +60,6 @@ class RegistroPage extends StatelessWidget {
                         if (valor.contains('@') == false) {
                           return 'El correo no es valido, debe contener un @';
                         }
-
-                        if ((valor.length == valor.replaceAll('@', '').length + 1) == false) {
-                          return 'El correo solo debe tener un arroba';
-                        }
-
-                        if ((valor.contains('@') && valor.contains('.edu.hn') && valor.substring(valor.indexOf('@')+1, valor.indexOf('.edu.hn')).isNotEmpty) == false) {
-                          return 'El correo debe tener un dominio';
-                        }
             
                         if(valor.endsWith('.edu.hn') == false){
                           return 'El correo no es valido, debe terminar en ".edu.hn"';
@@ -88,10 +80,10 @@ class RegistroPage extends StatelessWidget {
                           return 'El telefono es obligatorio';
                         }
             
-                        if (valor.length < 8 || valor.length > 8) {
+                        if (valor.length < 8 && valor.length > 8) {
                           return 'El telefono debe de ser de 8 numeros';
                         }
-
+            
                         if (valor.startsWith('3') == false && valor.startsWith('9') == false) {
                           return 'El numero es invalido, debe iniciar con 3 o 9';
                         }
