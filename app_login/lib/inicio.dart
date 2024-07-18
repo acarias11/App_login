@@ -94,12 +94,13 @@ class ConfiguracionPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: PreferredSize(
-          preferredSize: Size.fromHeight(30.0), // here the desired height
+          preferredSize: Size.fromHeight(MediaQuery.of(context).size.height * 0.06), // here the desired height
           child: AppBar(
             backgroundColor: Colors.blueGrey,
             title: Text('Configuracion'),
           ),
       ),
+      drawer: Drawer(),
       body: SingleChildScrollView(
         
       padding: const EdgeInsets.all(15),
@@ -283,7 +284,7 @@ class ConfiguracionPage extends StatelessWidget {
                               width: 300,
                               child: FloatingActionButton(
                                 onPressed: (){
-                                Navigator.of(context).pushNamed('sesion');                                                 
+                                Navigator.of(context).popAndPushNamed('sesion');                                                 
 
                                 },
                                 backgroundColor: Colors.red,
@@ -316,11 +317,12 @@ class HomeMenuPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: PreferredSize(
-          preferredSize: Size.fromHeight(10.0), // here the desired height
+          preferredSize: Size.fromHeight(MediaQuery.of(context).size.height * 0.06), // here the desired height
           child: AppBar(
             backgroundColor: Colors.blueGrey,
           ),
       ),
+      drawer: Drawer(),
         body: SingleChildScrollView(
              
       padding: const EdgeInsets.all(15),
