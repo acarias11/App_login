@@ -1,5 +1,3 @@
-import 'dart:ui';
-
 import 'package:flutter/material.dart';
 import 'package:app_login/widgets/custom_inputs.dart';
 import 'package:app_login/widgets/password_input.dart';
@@ -10,6 +8,12 @@ class InicioDeSesionPage extends StatelessWidget {
   final correocontroller = TextEditingController();
   final contracontroller = TextEditingController();
   final GlobalKey<FormState> fkey = GlobalKey<FormState>();
+
+    final String correo1 = 'angel.carias@unah.hn';
+    final String correo2 = 'darlan.perdomo@unah.hn';
+    final String contra1 = '202222001305';
+    final String contra2 = '20222000729';
+    final regEx = RegExp(r'^[a-zA-Z0-9.a-zA-Z0-9._%-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$');
 
   @override
   Widget build(BuildContext context) {
@@ -48,7 +52,20 @@ class InicioDeSesionPage extends StatelessWidget {
                     teclado: TextInputType.emailAddress,
                     controller: correocontroller, 
                     icono: Icons.email,
-                    validator: null
+                    validator: (valor) {
+                      if (valor == null || valor.isEmpty) {
+                      return 'El correo es obligatorio';
+                      }
+
+                      if (valor != correo1 && regEx.hasMatch(correo1) == false) {
+                        return 'El correo es invalido';
+                      }
+
+                      if (valor != correo2 && regEx.hasMatch(correo2) == false) {
+                        return 'El correo es invalido';
+                      }
+                      return null;
+                    },
                    ),
                   
                   const SizedBox(height: 20,),
@@ -57,7 +74,20 @@ class InicioDeSesionPage extends StatelessWidget {
                     nombrelabel: 'Password',
                     hint: 'Ingrese su contrasenia',
                     controller: contracontroller, 
-                    validator: null, 
+                    validator: (valor) {
+                      if (valor == null || valor.isEmpty) {
+                      return 'La contraseña es obligatoria';
+                      }
+
+                      if (valor != contra1 && regEx.hasMatch(contra1) == false) {
+                        return 'La contraseña es incorrecta';
+                      }
+
+                      if (valor != contra2 && regEx.hasMatch(contra2) == false) {
+                        return 'La contraseña es incorrecta';
+                      }
+                      return null;
+                    }, 
                     ),
                     const SizedBox(height: 20,),
                      Row(
@@ -69,8 +99,11 @@ class InicioDeSesionPage extends StatelessWidget {
                               width: 300,
                               child: ElevatedButton(
                                 onPressed:(){
-                                Navigator.of(context).pushNamed('inicio');                                                 
-        
+                                  if(!fkey.currentState!.validate()) return;
+                                Navigator.of(context).pushNamed('inicio',arguments: {
+                                    'correo': correocontroller.text,
+                                    'contraseña': contracontroller.text,
+                                  });                                                 
                               }, 
                               child:
                                  const Text('Ingresar',

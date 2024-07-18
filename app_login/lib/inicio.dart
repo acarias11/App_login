@@ -6,6 +6,12 @@ class InicioPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container();
+    final usuario = ModalRoute.of(context)!.settings.arguments as Map;
+
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Hola! ${usuario['correo']}'),
+      ),
+    );
   }
 }
