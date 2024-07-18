@@ -11,7 +11,7 @@ class InicioDeSesionPage extends StatelessWidget {
 
     final String correo1 = 'angel.carias@unah.hn';
     final String correo2 = 'darlan.perdomo@unah.hn';
-    final String contra1 = '202222001305';
+    final String contra1 = '20222001305';
     final String contra2 = '20222000729';
     final regEx = RegExp(r'^[a-zA-Z0-9.a-zA-Z0-9._%-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$');
 
