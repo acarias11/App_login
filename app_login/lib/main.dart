@@ -15,7 +15,7 @@ class MainApp extends StatelessWidget {
     return  MaterialApp(
       debugShowCheckedModeBanner: false,
        title: 'App login',
-       initialRoute: 'inicio',
+       initialRoute: 'sesion',
        routes: {
         'sesion': (context) => InicioDeSesionPage(),
         'registro':(context) => RegistroPage(),
