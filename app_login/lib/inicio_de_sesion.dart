@@ -9,7 +9,7 @@ class InicioDeSesionPage extends StatelessWidget {
   final contracontroller = TextEditingController();
   final GlobalKey<FormState> fkey = GlobalKey<FormState>();
 
-    final String correo1 = 'angel.carias@unah.hn';
+    final String correo1 = 'aacarias@unah.hn';
     final String correo2 = 'darlan.perdomo@unah.hn';
     final String contra1 = '20222001305';
     final String contra2 = '20222000729';
@@ -94,6 +94,7 @@ class InicioDeSesionPage extends StatelessWidget {
                                 onPressed:(){
                                 if(!fkey.currentState!.validate()) return;
                                 Navigator.of(context).popAndPushNamed('inicio',arguments: {
+                                    'user':'Angel Carias',
                                     'correo': correocontroller.text,
                                     'contraseña': contracontroller.text,
                                   });                                                 
