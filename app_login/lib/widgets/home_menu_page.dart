@@ -1,5 +1,33 @@
 import 'package:flutter/material.dart';
 
+String getUserName(Map usuario) {
+  if (usuario == null || usuario.isEmpty) {
+    return '';
+  }
+
+  String nombre = usuario['correo'] as String;
+  if (usuario['correo'] == 'aacarias@unah.hn') {
+    nombre = 'Angel Carias';
+  }
+
+  if (usuario['correo'] == 'darlan.perdomo@unah.hn') {
+    nombre = 'Darlan Perdomo';
+  }
+
+  return 'Usuario: $nombre';
+}
+
+AssetImage getImageUser(String username) {
+  if (username == 'aacarias@unah.hn') {
+    return const AssetImage('assets/images/perfil1.jpg');
+  } else if (username == 'darlan.perdomo@unah.hn') {
+    return const AssetImage('assets/images/perfil2.jpg');
+  } else {
+    return const AssetImage('assets/images/default.jpg');
+  }
+}
+
+
 class HomeMenuPage extends StatelessWidget {
   const HomeMenuPage({
     super.key,
@@ -7,7 +35,8 @@ class HomeMenuPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final usuario = ModalRoute.of(context)!.settings.arguments as Map;
+    final usuario = ModalRoute.of(context)!.settings.arguments as Map<String, dynamic>;
+    final String nombreUsuario = getUserName(usuario); 
     return Scaffold(
       appBar: PreferredSize(
           preferredSize: Size.fromHeight(MediaQuery.of(context).size.height * 0.06), // here the desired height
@@ -15,20 +44,19 @@ class HomeMenuPage extends StatelessWidget {
             backgroundColor: Colors.blueGrey,
           ),
       ),
-drawer: Drawer(
+        drawer: Drawer(
         child: ListView(
           children:   [
              DrawerHeader(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                        const CircleAvatar(
+                      CircleAvatar(
                     radius: 55,
-                    backgroundImage: NetworkImage(
-                        'https://miro.medium.com/v2/resize:fit:720/format:webp/1*Ld1KM2WSfJ9YQ4oeRf7q4Q.jpeg'),
+                    backgroundImage: getImageUser(nombreUsuario),
                   ),
-                  
-                    Text('inicio: ${usuario['user']}')
+
+                    Text(nombreUsuario),
                 ],
               ),
               
@@ -48,6 +76,15 @@ drawer: Drawer(
                 child : Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
+                      Row(
+                        children: [
+                          Padding(
+                            padding: const EdgeInsets.only(left: 15,top: 10),
+                            child: Text('Hola! ${usuario['correo']}',
+                            style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),),
+                          ),
+                        ],
+                      ),
                        Row(
                         children: [
                               const  CircleAvatar(

@@ -11,8 +11,10 @@ class InicioDeSesionPage extends StatelessWidget {
 
     final String correo1 = 'aacarias@unah.hn';
     final String correo2 = 'darlan.perdomo@unah.hn';
-    final String contra1 = '20222001305';
-    final String contra2 = '20222000729';
+    final Map ContraCorreos = {
+      'aacarias@unah.hn': '20222001305',
+      'darlan.perdomo@unah.hn': '20222000729'
+    };
 
   @override
   Widget build(BuildContext context) {
@@ -56,7 +58,7 @@ class InicioDeSesionPage extends StatelessWidget {
                       return 'El correo es obligatorio';
                       }
 
-                      if (((valor == correo1) || (valor == correo2)) == false) {
+                      if ((valor == 'aacarias@unah.hn' || valor == 'darlan.perdomo@unah.hn') == false) {
                         return 'El correo es invalido';
                       }
 
@@ -75,7 +77,11 @@ class InicioDeSesionPage extends StatelessWidget {
                       return 'La contraseña es obligatoria';
                       }
 
-                      if (((valor == contra1) || (valor == contra2)) == false) {
+                      if (((valor == ContraCorreos['aacarias@unah.hn'] || valor == ContraCorreos['darlan.perdomo@unah.hn'])) == false) {
+                        return 'La contraseña es incorrecta';
+                      }
+
+                      if (!ContraCorreos.containsKey(correocontroller.text) || valor != ContraCorreos[correocontroller.text]) {
                         return 'La contraseña es incorrecta';
                       }
 
@@ -92,12 +98,12 @@ class InicioDeSesionPage extends StatelessWidget {
                               width: 300,
                               child: ElevatedButton(
                                 onPressed:(){
-                                if(!fkey.currentState!.validate()) return;
-                                Navigator.of(context).popAndPushNamed('inicio',arguments: {
-                                    'user':'Angel Carias',
+                                  if(!fkey.currentState!.validate()) return;
+                                  Navigator.of(context).popAndPushNamed('inicio',arguments: {
                                     'correo': correocontroller.text,
                                     'contraseña': contracontroller.text,
-                                  });                                                 
+                                  }); 
+                                              
                               }, 
                               child:
                                  const Text('Ingresar',
