@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:app_login/widgets/custom_inputs.dart';
 import 'package:app_login/widgets/password_input.dart';
+import 'package:flutter/widgets.dart';
 
 class InicioDeSesionPage extends StatelessWidget {
    InicioDeSesionPage({super.key});
@@ -37,14 +38,16 @@ class InicioDeSesionPage extends StatelessWidget {
               key: fkey,
                child: Column(
                 children: [
-                  const Row(
+                  Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                              SizedBox(height: 130),
-                          Icon(
-                            Icons.people,
-                          size: 100,
-                          )
+                          Image(
+                             image: AssetImage('assets/images/logo.gif'),
+                             height: 300,
+                             width: 200,
+                             fit: BoxFit.cover,
+                           )
                    ],
                  ),  
                   CustomInputs(
