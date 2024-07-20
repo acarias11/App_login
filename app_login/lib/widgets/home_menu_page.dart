@@ -80,8 +80,8 @@ class HomeMenuPage extends StatelessWidget {
                         children: [
                           Padding(
                             padding: const EdgeInsets.only(left: 15,top: 10),
-                           // child: Text('Hola! ${usuario['correo']}',
-                           //style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold),),
+                            child: Text('Hola! ${usuario['correo']}',
+                           style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold),),
                           ),
                         ],
                       ),
